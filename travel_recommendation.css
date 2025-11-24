@@ -1,0 +1,474 @@
+body {
+  /* 1. Specify the image file */
+  background-image: url('images/bg1.jpg');
+
+  /* 2. Stop the image from tiling/repeating */
+  background-repeat: no-repeat;
+
+  /* 3. Scale the image to cover the entire viewport */
+  background-size: cover;
+
+  /* 4. Fix the image relative to the viewport (optional, but recommended) */
+  background-attachment: fixed;
+
+  /* Optional: Fallback background color in case the image fails to load */
+  background-color: #000000;
+
+  font-family: Arial, sans-serif;
+  margin: 20px;
+}
+
+.navbar {
+  display: flex;
+  /* Pushes the three children (left, center, right) to the far ends */
+  justify-content: space-between;
+  /* Vertically centers all content within the nav bar */
+  align-items: center;
+
+  width: 100%;
+  background-color: black; /* Dark background */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.navbar__left {
+  display: flex;
+  align-items: center; /* Vertically center the logo and name */
+}
+
+.logo {
+  height: 40px; /* Size of the logo */
+  width: auto;
+  margin-right: 10px;
+}
+
+.company-name {
+  color: white; /* Text color */
+  font-size: 20px;
+  font-weight: bold;
+  font-family: Arial, sans-serif;
+}
+/* -------------------------------------------------------------------
+ * 1. Menu Container (.navbar__center)
+ * ------------------------------------------------------------------- */
+.navbar__right {
+  /* Use flex to easily manage the spacing between the links */
+  display: flex;
+  /* Creates a consistent gap between each link */
+  gap: 35px;
+  /* Ensures the links are vertically centered within this container
+     (though the main .navbar handles the overall vertical centering) */
+  align-items: center;
+  margin-right: 10px;
+}
+
+/* -------------------------------------------------------------------
+ * 2. Individual Link Styling (a tags inside the container)
+ * ------------------------------------------------------------------- */
+.navbar__right a {
+  /* Makes the entire padded area clickable */
+  display: inline-block;
+
+  /* --- Text Appearance --- */
+  color: #f0f0f0; /* Light gray text for visibility on the dark background */
+  text-decoration: none; /* Removes the default underline */
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 500; /* Medium weight */
+  text-transform: uppercase; /* Gives a professional, clean look */
+
+  /* --- Spacing & Clickable Area --- */
+  /* Vertical padding controls the height of the clickable area */
+  padding: 15px 0;
+
+  /* Smooth transition for hover effects */
+  transition: color 0.3s ease, border-bottom 0.3s ease;
+}
+
+/* -------------------------------------------------------------------
+ * 3. Interactive/Hover States
+ * ------------------------------------------------------------------- */
+.navbar__right a:hover {
+  color: #00bcd4; /* Bright cyan accent color */
+
+  /* Add a subtle line under the link for feedback */
+  border-bottom: 2px solid #00bcd4;
+}
+
+.navbar__center {
+  display: flex;
+  align-items: center; /* Vertically center the input and button */
+  gap: 10px; /* Space between search box and button */
+  margin-right: 10px;
+}
+
+
+.search-box {
+  padding: 8px 12px; /* Adds internal space */
+  border: 1px solid #ccc; /* Light gray border */
+  border-radius: 4px; /* Slightly rounded corners */
+  font-size: 14px;
+  min-width: 200px;
+  /* Optional: Smooth focus transition */
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.search-box:focus {
+  /* Highlights the box when active */
+  border-color: #007bff;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+  outline: none; /* Removes default browser outline */
+}
+
+.search-button {
+  padding: 8px 15px;
+  border: none;
+  border-radius: 4px;
+  /* Primary Action Color (Blue) */
+  background-color: #00bcd4;
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+.search-button:hover {
+  /* Slightly darker blue on hover */
+  background-color: #0056b3;
+}
+
+.search-button:active {
+  /* Gives a pressed effect */
+  transform: scale(0.98);
+}
+
+.clear-button {
+  padding: 8px 15px;
+  border: none;
+  border-radius: 4px;
+  /* Secondary Action Color (Red/Danger) */
+  background-color: #00bcd4;
+  color: white; /* Red text */
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.clear-button:hover {
+  /* Inverted colors on hover for a strong effect */
+  background-color: #dc3545;
+  color: white;
+}
+
+/* 🎨 Styling the Introduction Box */
+.intro-box {
+  /* **Positioning** */
+  font-size: 22px;
+  width: 250px; /* Define the width of the rectangle */
+  float: left;  /* This pushes the box to the left and allows other content to wrap around it */
+  margin-left: 100px; /* Space between the box and the main content */
+
+  /* **Appearance (Making it look like a box)** */
+  padding: 15px; /* Inner space around content */
+  border: 1px solid #ccc;
+
+}
+
+.book-button {
+  padding: 5px 8px;
+  font-size: 20px;
+  font-weight: 700;
+  mso-border-shadow: yes;
+  background-color: rgba(60, 221, 227, 0.86);
+  border-width: 4px ;
+}
+
+.book-button:hover {
+  background-color: khaki; /* Darker Blue Background */
+  color: black;
+  font-weight: bold;
+}
+   /* --- 🔑 KEY: RESULTS CONTAINER STYLING --- */
+ .results-container {
+   /* 1. Use Flexbox to arrange items horizontally */
+   display: flex;
+   flex-direction: column;
+   /* 2. Allows cards to wrap to the next row when space runs out */
+   /*flex-wrap: wrap;*/
+   /* 3. Adds space between all cards (both horizontal and vertical) */
+   gap: 20px;
+   /* 4. Centers the group of cards in the middle of the screen */
+   justify-content: center;
+   padding: 20px;
+   margin-left: 450px;
+   max-width: 1500px; /* Optional: Sets a max width for the entire result block */
+ }
+
+/* --- Card Styling (From the previous response) --- */
+.tourism-card {
+  /* Keep the card width fixed or set a min/max width */
+  width: 500px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+  background-color: #fff;
+  /* Remove individual margins, as the space is now handled by `gap` */
+  margin: 0;
+}
+/* ... include all other card-related styles (.card-image, .visit-button, etc.) ... */
+
+.tourism-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Image and content styles remain the same */
+.card-image-wrapper { height: 200px; overflow: hidden; }
+.card-image { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.5s; }
+.tourism-card:hover .card-image { transform: scale(1.05); }
+.card-content { padding: 15px; }
+.card-title { margin-top: 0; color: #333; font-size: 1.4em; margin-bottom: 10px; }
+.card-description { color: #666; font-size: 0.9em; line-height: 1.4; margin-bottom: 15px; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+.visit-button { display: inline-block; width: 13%; padding: 5px; background-color: #007bff; color: white; text-align: center; text-decoration: none; border-radius: 5px; font-weight: bold; transition: background-color 0.2s; }
+.visit-button:hover { background-color: #0056b3; }
+
+
+/* --- 1. Position the Main Wrapper (Fixed Bottom-Left) --- */
+.social-wrapper {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  z-index: 1000;
+}
+
+/* --- 2. Style the List for Vertical Layout --- */
+.social-wrapper ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px; /* Space between icons */
+}
+
+/* --- 3. Style the Image Icon --- */
+.social-image {
+  /* Set the size of your icon image */
+  width: 50px;
+  height: 50px;
+
+  /* Optional: Make images circular (if they aren't already) */
+  border-radius: 50%;
+
+  /* Ensure the image doesn't get distorted if sized improperly */
+  object-fit: cover;
+
+  /* Smooth transition for the hover effect */
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* --- 4. Hover Effect (Visual Feedback) --- */
+/* Apply hover to the <a> tag, but style the <img> inside it */
+.social-link:hover .social-image {
+  /* Makes the image slightly transparent on hover */
+  opacity: 0.8;
+
+  /* Slightly enlarges the image */
+  transform: scale(1.1);
+
+  /* Optional: Add a subtle shadow */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+/* In your styles.css file */
+
+.search-box.disabled-search {
+  /* Use display: none to completely remove the element and the space it occupies */
+  display: none;
+}
+
+/* 🎨 Styling the Introduction Box */
+.about-us-box {
+  /* **Positioning** */
+  font-size: 18px;
+  width: 1300px; /* Define the width of the rectangle */
+  float: left;  /* This pushes the box to the left and allows other content to wrap around it */
+  margin-left: 100px; /* Space between the box and the main content */
+
+  /* **Appearance (Making it look like a box)** */
+  padding: 15px; /* Inner space around content */
+
+}
+
+.about-us-box h1{
+  font-weight: 900;
+}
+
+.team-container {
+  /* **Positioning** */
+
+  width: 1000px; /* Define the width of the rectangle */
+  height: 200px;
+  float: left;  /* This pushes the box to the left and allows other content to wrap around it */
+  margin-left: 200px; /* Space between the box and the main content */
+
+  /* **Appearance (Making it look like a box)** */
+  padding: 15px; /* Inner space around content */
+
+  /* Arrange the team member cards inside */
+  display: flex;
+  /* Creates flexible columns - adjust minmax(size) for different card sizes */
+  /*grid-template-columns: repeat(auto-fit, minmax(1px, 1fr));*/
+
+  gap: 10px; /* Space between the small square cards */
+  overflow: auto;
+
+
+}
+
+/* --- Team Member Card (The Small Square) --- */
+.team-member-card {
+  /* Enforce a square-like shape */
+  /*aspect-ratio: 1 / 1; !* Makes the width and height equal *!*/
+
+
+  /* Styling for the card itself */
+  /*background-color: #ffffff;*/
+  width: 180px;
+  height: 130px;
+  border-radius: 6px;
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 15px;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+
+  /* Center the content inside the card vertically and horizontally */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.team-member-card .name {
+  font-weight: 700;
+  font-size: 1.1em;
+  margin-bottom: 5px;
+  color: gainsboro; /* Highlight name */
+}
+
+.position{
+  width: 100px;
+  height: 20px;
+  background-color: rgba(60, 221, 227, 0.86);
+  padding-left: 5px;
+  padding-right: 5px;
+}
+.contact-box{
+  width: 1200px;
+  height: 500px;
+  display: flex;
+  margin-top: 100px;
+  margin-left: 300px;
+}
+
+.contact-us{
+  text-align: left;
+  padding: 100px;
+  width: 400px;
+}
+.contact-us h1{
+  font-weight: 900;
+  font-size: 40px;
+}
+
+.contact-form{
+  flex: 1;
+  background-color: rgba(0, 0, 0, 0.3);
+  margin: 30px;
+  padding: 15px;
+}
+
+
+/* --- Form Container (Optional: for a subtle backdrop or framing) --- */
+.contact-form-container {
+  flex: 1;
+  margin: 30px;
+  padding: 15px;
+  background-color: rgba(0, 0, 0, 0.4); /* Semi-transparent dark background for the whole form area */
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  width: 100%;
+  max-width: 500px;
+  box-sizing: border-box;
+}
+
+.contact-form-container h2 {
+  color: #fff; /* White text for the heading */
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+/* --- Form Group for spacing --- */
+.form-group {
+  margin-bottom: 20px;
+}
+
+/* --- Transparent Label --- */
+.transparent-label {
+  display: block; /* Each label on its own line */
+  margin-bottom: 8px;
+  color: #eee; /* Light color for text to stand out on dark transparent background */
+  font-weight: bold;
+  background-color: transparent; /* Explicitly transparent */
+}
+
+/* --- Transparent Input and Textarea --- */
+.transparent-input {
+  width: 100%;
+  padding: 12px;
+  box-sizing: border-box; /* Include padding in the width */
+
+  background-color: transparent; /* KEY: Makes the input background transparent */
+  border: 1px solid rgba(255, 255, 255, 0.5); /* Semi-transparent white border */
+  border-radius: 5px;
+  color: #fff; /* Text typed by user will be white */
+  font-size: 16px;
+  outline: none; /* Remove default outline on focus */
+}
+
+.transparent-input::placeholder {
+  color: rgba(255, 255, 255, 0.7); /* Lighter placeholder text */
+}
+
+.transparent-input:focus {
+  border-color: #007bff; /* Blue border on focus for better UX */
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+}
+
+/* For the textarea specifically */
+textarea.transparent-input {
+  resize: vertical; /* Allow vertical resizing only */
+  min-height: 100px;
+}
+
+/* --- Submit Button --- */
+.submit-button {
+  width: 100%;
+  padding: 15px;
+  background-color: rgba(60, 221, 227, 0.86);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.submit-button:hover {
+  background-color: khaki;
+  color: black;
+}
